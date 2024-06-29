@@ -1,0 +1,97 @@
+<c-container>
+
+    <c-row class="justify-content-center">
+        <c-col xs="10">
+            <c-card>
+                <c-card-body>
+                    <div class="headandpara d-grid gap-2 col-6 mx-auto">
+                        <h2>All Comments</h2>
+                    <p>From here You can manage your comments</p>
+                    <button cButton color="primary" class="p-3" id="button-addon2" type="button" routerLink="/">
+                        Back To Dashboard
+                      </button>
+                    </div>
+                    
+                  
+                        
+                     
+                      
+                </c-card-body>
+            </c-card>
+        </c-col>
+
+    </c-row>
+
+
+
+
+
+
+    <c-row class="mt-4 justify-content-center">
+        <c-col >
+            <c-card class="justify-content-center">
+                <c-card-body >
+                    <table cTable [small]="false" class="custom-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Comment</th>
+                                <th scope="col">Date</th>
+
+                               
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                
+                                
+                                <td>New User</td>
+                                <td class="wrap-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe repudiandae voluptatum asperiores delectus eligendi eaque numquam enim beatae maiores soluta.</td>
+                                <td>Nov 23,2024</td>
+                                
+                                <td>
+                                    <button cButton color="success" size="sm">Approve</button>
+                                    <button cButton color="danger" size="sm">Delete</button>
+                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                
+                                
+                                <td>New User</td>
+                                <td>This is my first comment</td>
+                                <td>Nov 23,2024</td>
+                                
+                                <td>
+                                    <button cButton color="success" size="sm">Approve</button>
+                                    <button cButton color="danger" size="sm">Delete</button>
+                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                
+                                
+                                <td>New User</td>
+                                <td>This is my first comment</td>
+                                <td>Nov 23,2024</td>
+                                
+                                <td>
+                                    <button cButton color="success" size="sm">Approve</button>
+                                    <button cButton color="danger" size="sm">Delete</button>
+                                   
+                                </td>
+                            </tr>
+            
+                        </tbody>
+                    </table>
+                </c-card-body>
+            </c-card>
+    
+        </c-col>
+    </c-row>
+</c-container>

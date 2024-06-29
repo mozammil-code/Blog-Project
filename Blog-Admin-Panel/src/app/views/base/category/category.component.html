@@ -1,0 +1,135 @@
+<c-container>
+
+    <c-row class="justify-content-center">
+        <c-col xs="10">
+            <c-card>
+                <c-card-body>
+                    <div class="headandpara">
+                        <h2>Add Categories</h2>
+                        <p>You cand actegories here</p>
+                    </div>
+
+                    <c-input-group class="mb-3">
+                        <input aria-describedby="button-addon2" aria-label="Recipient's username" cFormControl
+                            placeholder="Enter Category" name="categoryInput" id="inputGroup-sizing-default"
+                            #categoryInput />
+                        <button cButton color="primary" id="button-addon2" type="submit" (click)="logval()">
+                            Add Category
+                        </button>
+                    </c-input-group>
+
+                </c-card-body>
+            </c-card>
+        </c-col>
+
+    </c-row>
+
+
+
+
+
+    <c-row class="mt-4 justify-content-center">
+        <c-col xs="6">
+            <c-card class="justify-content-center">
+                <c-card-body>
+                    <table cTable [small]="false" class="custom-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Category</th>
+
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of categories let i=index" >
+                                <th scope="row">{{ i + 1 }}</th>
+
+
+                                <td>{{category.categoryname}}</td>
+
+                                <td>
+                                    <button cButton color="warning" size="sm"
+                                        [cModalToggle]="verticallyCenteredModal.id"
+                                        (click)="openEditModal(category)">Edit</button>
+                                    <button cButton color="danger" size="sm"[cModalToggle]="verticallyCenteredScrollableModal.id"(click)="openEditModal(category)">Delete</button>
+
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </c-card-body>
+            </c-card>
+
+        </c-col>
+    </c-row>
+
+
+
+    <c-modal #verticallyCenteredModal alignment="center" id="verticallyCenteredModal">
+        <c-modal-header>
+            <h2>Enter category to update</h2>
+
+            <button [cModalToggle]="verticallyCenteredModal.id" cButtonClose></button>
+        </c-modal-header>
+        <c-modal-body>
+            <c-input-group class="mb-3">
+                <input aria-describedby="button-addon2" aria-label="Recipient's username" cFormControl
+                    placeholder="Edit Category" name="editCategory" id="inputGroup-sizing-default"
+                    [(ngModel)]="selectedCategory.categoryname" />
+
+            </c-input-group>
+        </c-modal-body>
+        <c-modal-footer>
+
+            <button cButton color="primary" (click)="saveCategory()"[cModalToggle]="verticallyCenteredModal.id">Save</button>
+        </c-modal-footer>
+    </c-modal>
+
+
+    
+
+    <!-- <c-modal #verticallyCenteredModal alignment="center" id="verticallyCenteredModal">
+        <c-modal-header>
+            <h5 cModalTitle>Modal title</h5>
+            <button [cModalToggle]="verticallyCenteredModal.id" cButtonClose></button>
+        </c-modal-header>
+        <c-modal-body>
+            Are you sure want to Delete?
+        </c-modal-body>
+        <c-modal-footer>
+            <button [cModalToggle]="verticallyCenteredModal.id" cButton color="secondary" >
+                No
+            </button>
+            <button cButton color="primary" (click)="callme(true)"[cModalToggle]="verticallyCenteredModal.id">Yes</button>
+        </c-modal-footer>
+    </c-modal> -->
+
+
+   
+
+    <c-modal #verticallyCenteredScrollableModal
+             [scrollable]="true"
+             alignment="center"
+             id="verticallyCenteredScrollableModal">
+      <c-modal-header>
+        <h5 cModalTitle>Delete category</h5>
+        <button [cModalToggle]="verticallyCenteredScrollableModal.id" cButtonClose></button>
+      </c-modal-header>
+      <c-modal-body>
+        <h3>
+          Are You Sure Want to Delete?
+        </h3>
+      </c-modal-body>
+      <c-modal-footer>
+        <button [cModalToggle]="verticallyCenteredScrollableModal.id" cButton color="secondary">
+          No
+        </button>
+        <button cButton color="primary"(click)="callme(true)"[cModalToggle]="verticallyCenteredScrollableModal.id">Yes</button>
+      </c-modal-footer>
+    </c-modal>
+    
+
+</c-container>

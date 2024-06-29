@@ -1,0 +1,71 @@
+<c-container>
+    <c-card color="info">
+        <c-card-body>
+            <c-row class="justify-content-center">
+
+        
+                <c-col xs="4"><h2>All Blog Post</h2></c-col>
+        
+            </c-row>
+            <c-row class="justify-content-center">
+                <c-col xs="4">
+                    <p>From here you can manage blog Post</p>
+                </c-col>
+            </c-row>
+            <c-row class="justify-content-center">
+                <c-col xs="2">
+                    <button cButton color="primary" shape="rounded-0" routerLink="/base/traditionaleritings">Add a New Post</button>
+        
+                </c-col >
+        
+        
+                <c-col xs="2">
+                    <button cButton color="secondary" shape="rounded-0" routerLink="/">Back to Dashboard</button>
+                </c-col>
+            </c-row>
+        </c-card-body>
+    </c-card>
+
+
+
+    <c-row class="mt-4">
+        <c-col>
+            <c-card >
+                <c-card-body>
+                    <table cTable>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Post Image</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let blog of myblog,index let i=index">
+                                <th scope="row">{{ i + 1 }}</th>
+                                <td><img cImg height="120" width="110" fluid [src]="blog.image" /></td>
+                                <td class="wrap-text">{{blog.title}}</td>
+                                <td>{{blog.category}}</td>
+                                <td>{{blog.date}}</td>
+                                <td>
+                                    <button cButton color="warning" size="sm" [routerLink]="['/base/edit-post', blog._id]">Edit</button>
+                                    <button cButton color="danger" size="sm" (click)="deletePost(blog._id)">Delete</button>
+                                    <button cButton color="success" size="sm"(click)="toggleFeatured(blog._id)">{{ blog.featured ? 'Remove from Featured' : 'Add to Featured' }}</button>
+                                </td>
+                            </tr>
+                           
+            
+                        </tbody>
+                    </table>
+                </c-card-body>
+            </c-card>
+
+        </c-col>
+    </c-row>
+
+    
+   
+</c-container>
